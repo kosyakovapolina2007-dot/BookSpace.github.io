@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Каталог | BookSpace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">BOOKSPACE.</a>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="catalog.html" class="active">Каталог</a>
+                <a href="about.html">О нас</a>
+                <a href="contacts.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container" style="padding: 150px 0 100px;">
+        <div style="display: grid; grid-template-columns: 250px 1fr; gap: 60px;">
+            <aside class="sidebar">
+                <div style="margin-bottom: 40px;">
+                    <h4 class="filter-title">Жанры</h4>
+                    <button class="filter-btn f-genre active" data-val="all">Все книги</button>
+                    <button class="filter-btn f-genre" data-val="classic">Классика</button>
+                    <button class="filter-btn f-genre" data-val="fantasy">Фэнтези</button>
+                    <button class="filter-btn f-genre" data-val="detective">Детектив</button>
+                </div>
+                <div>
+                    <h4 class="filter-title">Авторы</h4>
+                    <button class="filter-btn f-author active" data-val="all">Все авторы</button>
+                    <button class="filter-btn f-author" data-val="tolkien">Дж. Толкин</button>
+                    <button class="filter-btn f-author" data-val="doyle">А. Конан Дойл</button>
+                    <button class="filter-btn f-author" data-val="fitz">Ф. Фицджеральд</button>
+                </div>
+            </aside>
+
+            <main class="book-grid">
+                <!-- Книга 1 -->
+                <article class="book-card reveal" data-genre="fantasy" data-author="tolkien">
+                    <div class="img-box">
+                        <img src="900x1200.png" alt="Хоббит">
+                    </div>
+                    <div class="card-info">
+                        <span class="category-tag">Фэнтези</span>
+                        <h3>Хоббит</h3>
+                        <p class="price">1,450 ₽</p>
+                        <button class="btn" onclick="openBook('Глава I', 'В норе под землей жил хоббит. Не в какой-то там мерзкой грязной сырой норе, а в хоббичьей норе, что значит уют.', 'Нежданные гости', 'Бильбо Бэггинс очень любил покурить трубку и посидеть на крыльце, не подозревая о грядущем.', 'Финал фрагмента', 'Приключения только начинаются! Купите полную версию, чтобы отправиться в путь.')">Читать фрагмент</button>
+                        <button class="btn btn-outline" onclick="localStorage.setItem('lastAdded', JSON.stringify({name:'Хоббит', price:1450, img:'900x1200.png'})); addToCart('Хоббит'); setTimeout(()=>location.href='cart.html', 1000)">В корзину</button>
+
+                    </div>
+                </article>
+
+                <!-- Книга 2 -->
+                <article class="book-card reveal" data-genre="detective" data-author="doyle">
+                    <div class="img-box">
+                        <img src="шерлок.png" alt="Шерлок">
+                    </div>
+                    <div class="card-info">
+                        <span class="category-tag">Детектив</span>
+                        <h3>Шерлок Холмс</h3>
+                        <p class="price">980 ₽</p>
+                        <button class="btn" onclick="openBook('Скандал в Богемии', 'Для Шерлока Холмса она всегда оставалась «Этой Женщиной». Он редко называл ее иначе.', 'Дедукция', 'Я вижу, я наблюдаю, но я не делаю выводов слишком рано, пока нет всех улик под рукой.', 'Финал фрагмента', 'Дело становится всё запутаннее. Узнайте развязку в полной книге.')">Читать фрагмент</button>
+                        <button class="btn btn-outline" onclick="localStorage.setItem('lastAdded', JSON.stringify({name:'Шерлок Холмс', price:980, img:'шерлок.png'})); addToCart('Шерлок Холмс'); setTimeout(()=>location.href='cart.html', 1000)">В корзину</button>
+                    </div>
+                </article>
+
+                <!-- Книга 3 -->
+                <article class="book-card reveal" data-genre="classic" data-author="fitz">
+                    <div class="img-box">
+                        <img src="2.00x-thumb.png" alt="Гэтсби">
+                    </div>
+                    <div class="card-info">
+                        <span class="category-tag">Классика</span>
+                        <h3>Великий Гэтсби</h3>
+                        <p class="price">1,100 ₽</p>
+                        <button class="btn" onclick="openBook('Глава I', 'В годы мои более молодые и впечатлительные отец дал мне совет, который я до сих пор кручу в голове.', 'Вечеринки', 'В усадьбе Гэтсби музыка гремела каждую ночь, привлекая сотни людей, которых он даже не знал.', 'Финал фрагмента', 'Прошлое нельзя вернуть. Или всё-таки можно? Продолжение в полной версии.')">Читать фрагмент</button>
+                        <button class="btn btn-outline" onclick="localStorage.setItem('lastAdded', JSON.stringify({name:'Великий Гэтсби', price:1100, img:'2.00x-thumb.png'})); addToCart('Великий Гэтсби'); setTimeout(()=>location.href='cart.html', 1000)">В корзину</button>
+                    </div>
+                </article>
+
+                <!-- Книга 4 -->
+                <article class="book-card reveal" data-genre="fantasy" data-author="tolkien">
+                    <div class="img-box">
+                        <img src="6428132276.png" alt="Кольца">
+                    </div>
+                    <div class="card-info">
+                        <span class="category-tag">Фэнтези</span>
+                        <h3>Властелин Колец</h3>
+                        <p class="price">2,200 ₽</p>
+                        <button class="btn" onclick="openBook('Праздник', 'Когда господину Бильбо Бэггинсу исполнилось сто одиннадцать лет, он объявил, что готовит грандиозный прием.', 'Кольцо', 'Одно Кольцо, чтоб править всеми, Оно главнее всех, Оно соберет всех вместе...', 'Финал фрагмента', 'Братство Кольца отправляется в долгий путь. Вы с ними?')">Читать фрагмент</button>
+                        <button class="btn btn-outline" onclick="localStorage.setItem('lastAdded', JSON.stringify({name:'Властелин Колец', price:2200, img:'6428132276.png'})); addToCart('Властелин Колец'); setTimeout(()=>location.href='cart.html', 1000)">В корзину</button>
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+
+    <!-- 3D Ридер -->
+    <div class="reader-overlay" id="readerOverlay" onclick="closeReader()">
+        <div class="book-container">
+            <div class="book-page">
+                <h2 style="color:var(--accent)">Глава I</h2>
+                <div class="page-content" style="margin-top: 40px;">
+                    <p>Это первая страница захватывающего приключения. В нашем 3D-ридере вы можете оценить шрифт и верстку издания перед покупкой...</p>
+                    <p style="margin-top: 20px;">Кликните на страницу, чтобы перелистнуть её.</p>
+                </div>
+                <div class="page-num">1</div>
+            </div>
+            <div class="book-page">
+                <h2 style="color:var(--accent)">Погружение</h2>
+                <div class="page-content" style="margin-top: 40px;">
+                    <p>На этой странице текст имитирует реальную книгу. Технология WebGL и CSS3D позволяют достичь эффекта присутствия.</p>
+                    <p style="margin-top: 20px;">Каждая страница анимирована отдельно для максимальной плавности.</p>
+                </div>
+                <div class="page-num">2</div>
+            </div>
+            <div class="book-page">
+                <h2 style="color:var(--accent)">Финал фрагмента</h2>
+                <div class="page-content" style="margin-top: 40px;">
+                    <p>К сожалению, бесплатный фрагмент закончился. Но вы можете приобрести полную версию в один клик!</p>
+                    <button class="btn" style="margin-top: 20px;" onclick="location.href='cart.html'">Купить сейчас</button>
+                </div>
+                <div class="page-num">3</div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Короткая информация о компании -->
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo-sub">BOOKSPACE.</a>
+                    <p>BookSpace — это современный магазин для любителей литературы. Наша миссия — сделать чтение доступным и технологичным с помощью 3D-превью и удобного сервиса доставки.</p>
+                </div>
+    
+                <!-- Дублирующее меню -->
+                <div>
+                    <h4 style="margin-bottom: 25px; color: var(--accent); font-size: 16px; text-transform: uppercase;">Разделы</h4>
+                    <div class="footer-nav">
+                        <a href="index.html">Главная</a>
+                        <a href="catalog.html">Каталог</a>
+                        <a href="about.html">О нас</a>
+                        <a href="contacts.html">Контакты</a>
+                    </div>
+                </div>
+    
+                <!-- Иконки соцсетей (картинки-ссылки) -->
+                <div>
+                    <h4 style="margin-bottom: 25px; color: var(--accent); font-size: 16px; text-transform: uppercase;">Мы в сети</h4>
+                    <div class="social-icons">
+                        <a href="https://vk.com/" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/145/145813.png" alt="VK">
+                        </a>
+                        <a href="https://t.me/" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="TG">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Копирайт по твоему образцу -->
+            <p class="footer-copy">© 2026 BookSpace. Учебный проект, [Впиши Свое ФИО]</p>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+    <script>
+        function openBook(title1, text1, title2, text2, title3, text3) {
+            const reader = document.getElementById('readerOverlay');
+            const titles = reader.querySelectorAll('h2');
+            const paragraphs = reader.querySelectorAll('.page-content p');
+    
+            // Меняем заголовки страниц
+            titles[0].innerText = title1;
+            titles[1].innerText = title2;
+            titles[2].innerText = title3;
+    
+            // Меняем текст (первые абзацы на страницах)
+            paragraphs[0].innerText = text1;
+            paragraphs[2].innerText = text2; // Индекс 2, так как на 1-й стр два <p>, на 2-й еще два
+            paragraphs[4].innerText = text3;
+    
+            openReader(); // Вызываем вашу стандартную функцию из script.js
+        }
+    </script>
+    
+</body>
+</html>

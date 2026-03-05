@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Контакты | BookSpace</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">BOOKSPACE.</a>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О нас</a>
+                <a href="contacts.html" class="active">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 180px 0;">
+        <div style="max-width: 900px; margin: 0 auto;" class="reveal">
+            <h1 style="font-size: 50px; text-align: center; margin-bottom: 60px;">Связаться с нами</h1>
+            <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px;">
+                <div>
+                    <h3 style="margin-bottom: 20px;">Инфо</h3>
+                    <p style="margin-bottom: 10px;"><strong>Адрес:</strong> Ул. Читателей, 42, Спб</p>
+                    <p style="margin-bottom: 10px;"><strong>Email:</strong> read@bookspace.com</p>
+                    <p style="margin-bottom: 30px;"><strong>Тел:</strong> 8 (800) 555-35-35</p>
+                </div>
+                <form onsubmit="event.preventDefault(); addToCart('Заявка');" style="display: flex; flex-direction: column; gap: 20px;">
+                    <input type="text" placeholder="Ваше имя" style="padding: 15px; background: transparent; border: 1px solid var(--accent);">
+                    <input type="email" placeholder="Email" style="padding: 15px; background: transparent; border: 1px solid var(--accent);">
+                    <textarea placeholder="Ваше сообщение" style="padding: 15px; background: transparent; border: 1px solid var(--accent); height: 120px;"></textarea>
+                    <button class="btn">Отправить послание</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Короткая информация о компании -->
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo-sub">BOOKSPACE.</a>
+                    <p>BookSpace — это современный магазин для любителей литературы. Наша миссия — сделать чтение доступным и технологичным с помощью 3D-превью и удобного сервиса доставки.</p>
+                </div>
+    
+                <!-- Дублирующее меню -->
+                <div>
+                    <h4 style="margin-bottom: 25px; color: var(--accent); font-size: 16px; text-transform: uppercase;">Разделы</h4>
+                    <div class="footer-nav">
+                        <a href="index.html">Главная</a>
+                        <a href="catalog.html">Каталог</a>
+                        <a href="about.html">О нас</a>
+                        <a href="contacts.html">Контакты</a>
+                    </div>
+                </div>
+    
+                <!-- Иконки соцсетей (картинки-ссылки) -->
+                <div>
+                    <h4 style="margin-bottom: 25px; color: var(--accent); font-size: 16px; text-transform: uppercase;">Мы в сети</h4>
+                    <div class="social-icons">
+                        <a href="https://vk.com/" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/145/145813.png" alt="VK">
+                        </a>
+                        <a href="https://t.me/" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="TG">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Копирайт по твоему образцу -->
+            <p class="footer-copy">© 2026 BookSpace. Учебный проект, [Впиши Свое ФИО]</p>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

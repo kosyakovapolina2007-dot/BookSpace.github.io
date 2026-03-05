@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>BOOKSPACE | Главная</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">BOOKSPACE.</a>
+            <nav>
+                <a href="index.html" class="active">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О нас</a>
+                <a href="contacts.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-slider">
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=2070')">
+            <div class="slide-content">
+                <p style="color:var(--accent); font-weight:700">КОЛЛЕКЦИЯ 2026</p>
+                <h1>Мир между строк</h1>
+                <p>Исследуйте более 15,000 редких изданий и современных бестселлеров с доставкой на дом.</p>
+                <a href="catalog.html" class="btn" style="margin-top:30px">В каталог</a>
+            </div>
+        </div>
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2070')">
+            <div class="slide-content">
+                <p style="color:var(--accent); font-weight:700">ОНЛАЙН-ЧТЕНИЕ</p>
+                <h1>Фрагменты бесплатно</h1>
+                <p>Читайте первые главы любой книги в нашем новом 3D-ридере прямо в браузере.</p>
+                <a href="catalog.html" class="btn" style="margin-top:30px">Попробовать</a>
+            </div>
+        </div>
+    </section>
+              <!-- КОМПАКТНЫЙ СЛАЙДЕР (1 КНИГА ЗА РАЗ) -->
+    <section class="container reveal" style="padding: 60px 0 0;">
+        <div style="max-width: 350px; margin: 0 auto;"> <!-- Ширина под одну книгу -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                <h2 style="font-size: 24px;">Новинки</h2>
+                <div style="display: flex; gap: 10px;">
+                    <button id="prevNov" style="background:none; border:1px solid var(--accent); color:var(--accent); padding: 2px 12px; cursor: pointer;">←</button>
+                    <button id="nextNov" style="background:none; border:1px solid var(--accent); color:var(--accent); padding: 2px 12px; cursor: pointer;">→</button>
+                </div>
+            </div>
+
+            <div style="overflow: hidden; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                <div id="noveltyTrack" style="display: flex; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);">
+                    
+                    <!-- Книга 1 -->
+                    <article class="book-card" style="min-width: 100%; border: none; margin: 0;">
+                        <div class="img-box" style="height: 400px;">
+                            <img src="900x1200.png" alt="Хоббит">
+                        </div>
+                        <div class="card-info" style="padding: 20px; background: #fff;">
+                            <span class="category-tag">Фэнтези</span>
+                            <h3 style="font-size: 18px;">Хоббит</h3>
+                            <p class="price" style="font-size: 16px;">1,450 ₽</p>
+                            <a href="catalog.html" class="btn" style="font-size: 10px; padding: 10px 20px;">В каталог</a>
+                        </div>
+                    </article>
+
+                    <!-- Книга 2 -->
+                    <article class="book-card" style="min-width: 100%; border: none; margin: 0;">
+                        <div class="img-box" style="height: 400px;">
+                            <img src="шерлок.png" alt="Шерлок">
+                        </div>
+                        <div class="card-info" style="padding: 20px; background: #fff;">
+                            <span class="category-tag">Детектив</span>
+                            <h3 style="font-size: 18px;">Шерлок Холмс</h3>
+                            <p class="price" style="font-size: 16px;">980 ₽</p>
+                            <a href="catalog.html" class="btn" style="font-size: 10px; padding: 10px 20px;">В каталог</a>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="container reveal" style="padding: 100px 0;">
+        <h2 style="font-size: 40px; text-align: center; margin-bottom: 60px;">Почему выбирают нас</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+            <div style="text-align: center;">
+                <div style="font-size: 40px; color: var(--accent); margin-bottom: 20px;">01</div>
+                <h3>Редкие издания</h3>
+                <p>Находим книги, которые уже не печатаются тиражами.</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 40px; color: var(--accent); margin-bottom: 20px;">02</div>
+                <h3>Эстетика</h3>
+                <p>Каждая упаковка — произведение искусства.</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="font-size: 40px; color: var(--accent); margin-bottom: 20px;">03</div>
+                <h3>Сообщество</h3>
+                <p>Более 50,000 активных читателей в нашем клубе.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Короткая информация о компании -->
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo-sub">BOOKSPACE.</a>
+                    <p>BookSpace — это современный магазин для любителей литературы. Наша миссия — сделать чтение доступным и технологичным с помощью 3D-превью и удобного сервиса доставки.</p>
+                </div>
+    
+                <!-- Дублирующее меню -->
+                <div>
+                    <h4 style="margin-bottom: 25px; color: var(--accent); font-size: 16px; text-transform: uppercase;">Разделы</h4>
+                    <div class="footer-nav">
+                        <a href="index.html">Главная</a>
+                        <a href="catalog.html">Каталог</a>
+                        <a href="about.html">О нас</a>
+                        <a href="contacts.html">Контакты</a>
+                    </div>
+                </div>
+    
+                <!-- Иконки соцсетей (картинки-ссылки) -->
+                <div>
+                    <h4 style="margin-bottom: 25px; color: var(--accent); font-size: 16px; text-transform: uppercase;">Мы в сети</h4>
+                    <div class="social-icons">
+                        <a href="https://vk.com/" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/145/145813.png" alt="VK">
+                        </a>
+                        <a href="https://t.me/" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="TG">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Копирайт по твоему образцу -->
+            <p class="footer-copy">© 2026 BookSpace. Учебный проект, [Впиши Свое ФИО]</p>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

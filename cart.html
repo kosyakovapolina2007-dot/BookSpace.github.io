@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина | BookSpace</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .remove-btn { background: none; border: none; color: var(--text-muted); font-size: 20px; cursor: pointer; transition: 0.3s; padding: 10px; }
+        .remove-btn:hover { color: var(--accent); transform: scale(1.2); }
+        .cart-item { display: flex; gap: 20px; margin-bottom: 25px; align-items: center; border-bottom: 1px solid #f9f9f9; padding-bottom: 20px; transition: 0.5s; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">BOOKSPACE.</a>
+            <nav>
+                <a href="index.html">Главная</a>
+                <a href="catalog.html">Каталог</a>
+                <a href="about.html">О нас</a>
+                <a href="contacts.html">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding: 180px 0 100px;">
+        <div class="reveal">
+            <h1 style="font-size: 50px; margin-bottom: 50px; text-align: center;">Ваш заказ</h1>
+            
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: start;">
+                <!-- Список товаров  -->
+                <div id="cartContainer" style="background: var(--white); padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border-radius: 4px;">
+                    <h3 style="margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 15px;">Выбранные книги</h3>
+                    
+                    <div id="cartItemsList">
+                        <!-- Сюда добавятся книги -->
+                    </div>
+
+                    <div id="emptyMsg" style="display: none; text-align: center; padding: 40px 0;">
+                        <p style="color: var(--text-muted);">Корзина пуста</p>
+                        <a href="catalog.html" class="btn" style="margin-top: 20px;">В каталог</a>
+                    </div>
+
+                    <div id="totalSection" style="margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--bg); display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-size: 20px; font-weight: 700;">Итого:</span>
+                        <span id="finalPrice" style="font-size: 28px; font-weight: 700; color: var(--accent);">0 ₽</span>
+                    </div>
+                </div>
+
+                <!-- форма оформления заказа -->
+<div style="background: var(--text); color: var(--white); padding: 40px; border-radius: 4px; position: sticky; top: 120px;">
+    <h3 style="margin-bottom: 30px; color: var(--white);">Оформить доставку</h3>
+    
+    <form id="checkoutForm" onsubmit="validateAndOrder(event)" style="display: flex; flex-direction: column; gap: 15px;">
+        
+        <label style="font-size: 12px; color: rgba(255,255,255,0.5);">ФИО</label>
+        <input type="text" id="orderName" placeholder="Иван Иванов" required 
+               style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: white;">
+        
+        <label style="font-size: 12px; color: rgba(255,255,255,0.5);">Контактный телефон (11 цифр)</label>
+        <input type="tel" id="orderPhone" placeholder="89001234567" required 
+               style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: white;">
+        
+        <label style="font-size: 12px; color: rgba(255,255,255,0.5);">Email для чека</label>
+        <input type="email" id="orderEmail" placeholder="example@mail.ru" required 
+               style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: white;">
+
+        <label style="font-size: 12px; color: rgba(255,255,255,0.5);">Адрес доставки</label>
+        <textarea id="orderAddress" placeholder="Город, улица, дом, квартира" required 
+               style="padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: white; height: 80px; font-family: inherit;"></textarea>
+
+        <label style="font-size: 12px; color: rgba(255,255,255,0.5);">Способ оплаты</label>
+        <select id="orderPayment" style="padding: 12px; background: #333; border: 1px solid rgba(255,255,255,0.2); color: white; cursor: pointer;">
+            <option value="card">Картой на сайте</option>
+            <option value="cash">При получении</option>
+        </select>
+
+        <button type="submit" class="btn" style="width: 100%; background: var(--accent); margin-top: 10px;">Подтвердить заказ</button>
+    </form>
+</div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- Короткая информация о компании -->
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo-sub">BOOKSPACE.</a>
+                    <p>BookSpace — это современный магазин для любителей литературы. Наша миссия — сделать чтение доступным и технологичным с помощью 3D-превью и удобного сервиса доставки.</p>
+                </div>
+    
+                <!-- Дублирующее меню -->
+                <div>
+                    <h4 style="margin-bottom: 25px; color: var(--accent); font-size: 16px; text-transform: uppercase;">Разделы</h4>
+                    <div class="footer-nav">
+                        <a href="index.html">Главная</a>
+                        <a href="catalog.html">Каталог</a>
+                        <a href="about.html">О нас</a>
+                        <a href="contacts.html">Контакты</a>
+                    </div>
+                </div>
+    
+                <!-- Иконки соцсетей (картинки-ссылки) -->
+                <div>
+                    <h4 style="margin-bottom: 25px; color: var(--accent); font-size: 16px; text-transform: uppercase;">Мы в сети</h4>
+                    <div class="social-icons">
+                        <a href="https://vk.com/" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/145/145813.png" alt="VK">
+                        </a>
+                        <a href="https://t.me/" target="_blank">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="TG">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Копирайт по твоему образцу -->
+            <p class="footer-copy">© 2026 BookSpace. Учебный проект, [Впиши Свое ФИО]</p>
+        </div>
+    </footer>
+    
+
+    <script src="script.js"></script>
+    <script>
+        // Логика работы корзины
+        function renderCart() {
+            const listContainer = document.getElementById('cartItemsList');
+            let cartData = JSON.parse(localStorage.getItem('cartItems')) || [];
+            
+            // Проверяем, пришла ли новая книга из каталога через 'lastAdded'
+            const lastAdded = localStorage.getItem('lastAdded');
+            if (lastAdded) {
+                const book = JSON.parse(lastAdded);
+                cartData.push(book);
+                localStorage.setItem('cartItems', JSON.stringify(cartData));
+                localStorage.removeItem('lastAdded'); // Очищаем временный ключ
+            }
+
+            listContainer.innerHTML = '';
+            let total = 0;
+
+            if (cartData.length === 0) {
+                document.getElementById('emptyMsg').style.display = 'block';
+                document.getElementById('totalSection').style.display = 'none';
+                return;
+            }
+
+            cartData.forEach((item, index) => {
+                total += item.price;
+                listContainer.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img}" style="width: 80px; height: 110px; object-fit: cover; border-radius: 2px;">
+                        <div style="flex-grow: 1;">
+                            <h4 style="margin: 0;">${item.name}</h4>
+                        </div>
+                        <div style="font-weight: 700; color: var(--accent); margin-right: 20px;">${item.price.toLocaleString()} ₽</div>
+                        <button class="remove-btn" onclick="removeItem(${index})">&times;</button>
+                    </div>
+                `;
+            });
+
+            document.getElementById('finalPrice').innerText = `${total.toLocaleString()}₽`;
+        }
+
+        function removeItem(index) {
+            let cartData = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartData.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(cartData));
+            renderCart();
+        }
+
+        // Запуск при загрузке страницы
+        renderCart();
+
+        function validateAndOrder(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('orderName').value.trim();
+            const phone = document.getElementById('orderPhone').value.trim();
+            const email = document.getElementById('orderEmail').value.trim();
+            const address = document.getElementById('orderAddress').value.trim();
+
+            // 1. Проверка имени (не менее 2 букв, только буквы)
+            const nameRegex = /^[a-zA-Zа-яА-ЯёЁ\s\-]{2,}$/;
+            if (!nameRegex.test(name)) {
+                alert("Пожалуйста, введите корректное имя (только буквы, минимум 2 символа)");
+                return;
+            }
+
+            // 2. Проверка телефона (ровно 11 цифр, без букв)
+            const phoneRegex = /^[0-9]{11}$/;
+            if (!phoneRegex.test(phone)) {
+                alert("Ошибка в номере телефона! Введите 11 цифр без пробелов и символов (например, 89991234567)");
+                return;
+            }
+
+            // Доп. проверка телефона на "мусор" (например, 11111111111)
+            if (/^(\d)\1+$/.test(phone)) {
+                alert("Похоже, номер телефона введен некорректно. Проверьте цифры.");
+                return;
+            }
+
+            // 3. Проверка Email (стандартная проверка на @ и точку)
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Введите корректный адрес электронной почты");
+                return;
+            }
+
+            // 4. Проверка адреса
+            if (address.length < 10) {
+                alert("Пожалуйста, укажите более подробный адрес доставки");
+                return;
+            }
+
+            // Если всё ок
+            alert(`Спасибо, ${name}! Ваш заказ на сумму ${document.getElementById('finalPrice').innerText} принят. \n\nДетали отправлены на ${email}`);
+            
+            localStorage.removeItem('cartItems'); // Очищаем корзину
+            localStorage.removeItem('lastAdded');
+            location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
